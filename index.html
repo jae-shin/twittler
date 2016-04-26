@@ -3,25 +3,59 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <title>Twittler</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header class='container'>
+      <h1>Welcome to Twittler!</h1>
+    </header>
+
+    <section class='container'>
+      <button name='newTweets'>See New Tweets</button>
+    </section>
+
+    <section class='container'>
+      <h1>Here are the tweets from your friends...</h1>
+    </section>
+
+    <section class='feed'>
+    </section>
+
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        
+        var index = 0;
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+        // Shows new tweets under Feed
+        var refreshTweets = function(){
+          var length = streams.home.length;
+          while(index < length){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.addClass('container tweets');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + '   ' + tweet.created_at);
+            $('.feed').prepend($tweet);
+            index++;
+          }
         }
+
+        // Show the pre-generated 11 tweets
+        refreshTweets(); 
+
+        // When the button is clicked, show new tweets
+        $('button').on('click', function() {
+          refreshTweets();
+        });
 
       });
 
+      
+
     </script>
+
+
+
   </body>
 </html>
