@@ -68,7 +68,7 @@
         $('button.home').on('click', returnHome);
 
         // filter feed when user name is clicked
-        $('div').on('click', '.userName', function() {
+        $('.feed').on('click', '.userName', function() {
           var userString = $(this).text().slice(1);
           // var tweetsOfUser = streams.users[userString];
           $('.feedTitle').hide();
