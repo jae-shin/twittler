@@ -11,8 +11,10 @@
       <h1>Welcome to Twittler!</h1>
     </header>
 
-    <section class='container'>
-      <button name='newTweets'>See New Tweets</button>
+    <section class='container group'>
+      <button name='home' class='home'>Home</button>
+      <button name='newTweets' class='newTweets'>See New Tweets</button>
+      
     </section>
 
     <section class='container'>
@@ -49,27 +51,34 @@
         // Show the pre-generated 11 tweets
         refreshTweets(); 
 
-        // When the button is clicked, show new tweets
-        $('button').on('click', function() {
+        // wrap commands to return to the home page with full feed
+        var returnHome = function() {
+          $('.feed div').show();
+          $('.feedTitle').show();
+          $('.userTitle').hide();
+        }
+
+        // When the 'See New Tweets' button is clicked, show new tweets
+        $('button.newTweets').on('click', function() {
+          returnHome();
           refreshTweets();
         });
 
-        // 
-        $('div .userName').on('click', function() {
+        // When the 'Home' button is clicked, return to the home page
+        $('button.home').on('click', returnHome);
+
+        // filter feed when user name is clicked
+        $('div').on('click', '.userName', function() {
           var userString = $(this).text().slice(1);
-          var tweetsOfUser = streams.users[userString];
+          // var tweetsOfUser = streams.users[userString];
           $('.feedTitle').hide();
           $('.userTitle').show().text('Here is the Twittler timeline of @' + userString);
-          var userClass = '.' + userString
+          var userClass = '.' + userString;
           $('.feed div').hide();
           $('.feed').find(userClass).show();
           
-
-        })
-
+        });
       });
-
-      
 
     </script>
 

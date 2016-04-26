@@ -71,6 +71,27 @@ table {
 	display: none;
 }
 
+/* Clearfix for floats
+add the class 'group' to the parent element containing the floats
+*/
+.group:before, 
+.group:after { 
+	content: "";
+	display: table; 
+}
+.group:after {
+	clear: both; 
+}
+.group {
+	zoom: 1; /* IE6&7 */ 
+}
 
+button .home {
+	float: left;
+}
+
+button .newTweets {
+	float: left;
+}
 
 
