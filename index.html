@@ -16,7 +16,8 @@
     </section>
 
     <section class='container'>
-      <h1>Here are the tweets from your friends...</h1>
+      <div class='feedTitle'>Here are the tweets from your friends...</div>
+      <div class='userTitle'></div>
     </section>
 
     <section class='feed'>
@@ -35,7 +36,11 @@
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
             $tweet.addClass('container tweets');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + '   ' + tweet.created_at);
+            $tweet.addClass(tweet.user);
+            $tweet.html('<span>@' + tweet.user + '</span>' + ': ' + tweet.message + '   ' + tweet.created_at);
+
+            $tweet.children('span').addClass('userName');
+
             $('.feed').prepend($tweet);
             index++;
           }
@@ -48,6 +53,19 @@
         $('button').on('click', function() {
           refreshTweets();
         });
+
+        // 
+        $('div .userName').on('click', function() {
+          var userString = $(this).text().slice(1);
+          var tweetsOfUser = streams.users[userString];
+          $('.feedTitle').hide();
+          $('.userTitle').show().text('Here is the Twittler timeline of @' + userString);
+          var userClass = '.' + userString
+          $('.feed div').hide();
+          $('.feed').find(userClass).show();
+          
+
+        })
 
       });
 
