@@ -48,7 +48,7 @@ table {
 
 
 .container {
-	border: 3px dotted #2cb6ff; ;
+	/*border: 3px dotted #2cb6ff; ;*/
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	width: 800px;
   margin: 15px auto;
@@ -86,12 +86,12 @@ add the class 'group' to the parent element containing the floats
 	zoom: 1; /* IE6&7 */ 
 }
 
-button .home {
-	float: left;
+button.home {
+	margin-right: 25px;
 }
 
-button .newTweets {
-	float: left;
+button.newTweets {
+	margin-left: 25px;
 }
 
 
