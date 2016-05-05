@@ -21,13 +21,13 @@
         <h3>Write your own Tweet</h3>
         <p>Greetings visitor! Feel free to set a username and start tweeting!<p>
         <p> @:
-          <input type = "text">
+          <input class="set" type = "text">
           <button name='set'>Set</button>
         </p>
         <div id="status1">Please set your username first (above)</div>
         <div id="status2"></div>
         <p> Message:
-          <input type = "text">
+          <input class="tweet" type = "text">
           <button name='tweet'>Tweet!</button>
         </p>
       </div>
@@ -61,6 +61,11 @@
             var $tweet = $('<div></div>');
             $tweet.addClass('container tweets');
             $tweet.addClass(tweet.user);
+
+            if(!tweet.created_at){
+              tweet.created_at = new Date();
+            }
+
             $tweet.html('<span>@' + tweet.user + '</span>' + ': ' + tweet.message + '   ' + tweet.created_at);
 
             $tweet.children('span').addClass('userName');
@@ -102,17 +107,24 @@
 
         // Implement writeTweet feature
         $('button[name=set]').on('click', function() {
-          window.visitor = $('input').first().val();
+          window.visitor = $('input.set').val();
           if (visitor) {
             $('#status1').hide();
             $('#status2').show().text('Your username is set to @' + visitor);
           } 
+          $('input.set').val('');
         });
           
         $('button[name=tweet]').on('click', function() {
-          
+          var message = $('input.tweet').val();
+          if (message && visitor) {
+            streams.users[visitor] = [];
+            writeTweet(message);
+            refreshTweets();
+          }
+          $('input.tweet').val('');
         });
-        
+          
       });
 
     </script>
