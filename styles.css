@@ -81,6 +81,15 @@ h1 {
   line-height: 36px;
 }
 
+.feedTitle, 
+.userTitle {
+  font-weight: 500;
+}
+
+.userName {
+  font-weight: bold;
+  cursor: pointer;
+}
 
 /*
 ========================================
@@ -89,7 +98,7 @@ h1 {
 */
 
 button {
-  border: 1px double #8E8F8D;
+  border: 1px solid #8E8F8D;
   border-radius: 4px;
   background-color: #fff;
   color: #8E8F8D;
@@ -108,7 +117,11 @@ button.newTweets {
   margin-left: 25px;
 }
 
-
+/*
+========================================
+  Alignment
+========================================
+*/
 
 .container {
 	/*border: 3px dotted #2cb6ff;*/
@@ -120,19 +133,27 @@ button.newTweets {
   text-align: center;
 }
 
+.feedTitle,
+.userTitle {
+  margin-bottom: 30px;
+}
+
 .tweets {
 	text-align: left;
 }
 
-.userName {
-	font-weight: bold;
-	cursor: pointer;
-}
 
-.userFeed,
+
+/*
+========================================
+  Initial page setup
+========================================
+*/
+
 .userTitle {
 	display: none;
 }
+
 
 
 

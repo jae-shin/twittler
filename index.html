@@ -74,7 +74,7 @@
           var userString = $(this).text().slice(1);
           // var tweetsOfUser = streams.users[userString];
           $('.feedTitle').hide();
-          $('.userTitle').show().text('Here is the Twittler timeline of @' + userString);
+          $('.userTitle').show().text('Here is the Twittler timeline of @' + userString + "...");
           var userClass = '.' + userString;
           $('.feed div').hide();
           $('.feed').find(userClass).show();
