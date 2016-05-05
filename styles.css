@@ -46,10 +46,73 @@ table {
   border-spacing: 0;
 }
 
+/*
+========================================
+  Clearfix for floats
+========================================
+*/
+.group:before, 
+.group:after { 
+  content: "";
+  display: table; 
+}
+.group:after {
+  clear: both; 
+}
+.group {
+  zoom: 1; /* IE6&7 */ 
+}
+
+
+/*
+========================================
+  Typography
+========================================
+*/
+
+body, button {
+  color: #34AABF;
+  font: 400 16px/22px "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-weight: 700; 
+  font-size: 30px;
+  line-height: 36px;
+}
+
+
+/*
+========================================
+  Button styles
+========================================
+*/
+
+button {
+  border: 1px double #8E8F8D;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #8E8F8D;
+}
+
+button:hover {
+  border-color: #34AABF;
+  color: #34AABF;
+}
+
+button.home {
+  margin-right: 25px;
+}
+
+button.newTweets {
+  margin-left: 25px;
+}
+
+
 
 .container {
 	/*border: 3px dotted #2cb6ff;*/
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
 	width: 800px;
   margin: 15px auto;
   padding-left: 30px;
@@ -71,27 +134,6 @@ table {
 	display: none;
 }
 
-/* Clearfix for floats
-add the class 'group' to the parent element containing the floats
-*/
-.group:before, 
-.group:after { 
-	content: "";
-	display: table; 
-}
-.group:after {
-	clear: both; 
-}
-.group {
-	zoom: 1; /* IE6&7 */ 
-}
 
-button.home {
-	margin-right: 25px;
-}
-
-button.newTweets {
-	margin-left: 25px;
-}
 
 
