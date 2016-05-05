@@ -91,6 +91,10 @@ h1 {
   cursor: pointer;
 }
 
+span.input {
+  font-weight: bold;
+}
+
 /*
 ========================================
   Button styles
@@ -110,11 +114,11 @@ button:hover {
 }
 
 button[name='home'] {
-  margin-right: 25px;
+  /*margin-right: 25px;*/
 }
 
 button[name='newTweets'] {
-  margin-left: 25px;
+  /*margin-left: 25px;*/
 }
 
 button[name='set'] {
@@ -136,6 +140,15 @@ button[name='set'] {
   text-align: center;
 }
 
+header.container {
+  margin-bottom: 30px;
+}
+
+.col-1-2 {
+  width: 40%;
+  display: inline-block;
+}
+
 .feedTitle,
 .userTitle {
   margin-top: 30px;
@@ -147,9 +160,16 @@ button[name='set'] {
 }
 
 div.writeTweet {
-  /*float: left;*/
+  float: right;
   text-align: left;
   border: 3px solid;
+  padding: 5px 5px;
+  margin: 6px 0;
+}
+
+div.primaryButtons {
+  float: left;
+  margin: 36px 0;
 }
 
 

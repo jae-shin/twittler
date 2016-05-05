@@ -12,26 +12,25 @@
     </header>
 
     <section class='container group'>
-      <button name='home'>Home</button>
-      <button name='newTweets'>See New Tweets</button>
-      
-      <br><br>
-        
-      <div class='writeTweet'>
-        <h3>Write your own Tweet</h3>
-        <p>Greetings visitor! Feel free to set a username and start tweeting!<p>
-        <p> @:
+      <div class='col-1-2 primaryButtons'>
+        <button name='home'>Home</button>
+        <br><br>
+        <button name='newTweets'>See New Tweets</button>
+      </div>
+
+      <div class='col-1-2 writeTweet'>
+        <p>Greetings visitor, feel free to set a username and start tweeting!</p>
+        <p> <span class='input'>Username: @</span>
           <input class="set" type = "text">
           <button name='set'>Set</button>
         </p>
-        <div id="status1">Please set your username first (above)</div>
+        <div id="status1">Please set your username above</div>
         <div id="status2"></div>
-        <p> Message:
+        <p> <span class='input'>Message:</span>
           <input class="tweet" type = "text">
           <button name='tweet'>Tweet!</button>
         </p>
       </div>
-
     </section>
 
 
