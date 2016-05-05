@@ -109,12 +109,15 @@ button:hover {
   color: #34AABF;
 }
 
-button.home {
+button[name='home'] {
   margin-right: 25px;
 }
 
-button.newTweets {
+button[name='newTweets'] {
   margin-left: 25px;
+}
+
+button[name='set'] {
 }
 
 /*
@@ -135,13 +138,19 @@ button.newTweets {
 
 .feedTitle,
 .userTitle {
-  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 .tweets {
 	text-align: left;
 }
 
+div.writeTweet {
+  /*float: left;*/
+  text-align: left;
+  border: 3px solid;
+}
 
 
 /*

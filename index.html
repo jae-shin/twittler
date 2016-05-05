@@ -12,14 +12,34 @@
     </header>
 
     <section class='container group'>
-      <button name='home' class='home'>Home</button>
-      <button name='newTweets' class='newTweets'>See New Tweets</button>
+      <button name='home'>Home</button>
+      <button name='newTweets'>See New Tweets</button>
+      
+      <br><br>
+        
+      <div class='writeTweet'>
+        <h3>Write your own Tweet</h3>
+        <p>Greetings visitor! Feel free to set a username and start tweeting!<p>
+        <p> @:
+          <input type = "text">
+          <button name='set'>Set</button>
+        </p>
+        <div id="status1">Please set your username first (above)</div>
+        <div id="status2"></div>
+        <p> Message:
+          <input type = "text">
+          <button name='tweet'>Tweet!</button>
+        </p>
+      </div>
+
     </section>
+
 
     <section class='container'>
       <div class='feedTitle'>Here are the tweets from your friends...</div>
       <div class='userTitle'></div>
     </section>
+    
 
     <section class='feed'>
     </section>
@@ -61,13 +81,13 @@
         }
 
         // When the 'See New Tweets' button is clicked, show new tweets
-        $('button.newTweets').on('click', function() {
+        $('button[name=newTweets]').on('click', function() {
           returnHome();
           refreshTweets();
         });
 
         // When the 'Home' button is clicked, return to the home page
-        $('button.home').on('click', returnHome);
+        $('button[name=home]').on('click', returnHome);
 
         // filter feed when user name is clicked
         $('.feed').on('click', '.userName', function() {
@@ -78,8 +98,21 @@
           var userClass = '.' + userString;
           $('.feed div').hide();
           $('.feed').find(userClass).show();
+        });
+
+        // Implement writeTweet feature
+        $('button[name=set]').on('click', function() {
+          window.visitor = $('input').first().val();
+          if (visitor) {
+            $('#status1').hide();
+            $('#status2').show().text('Your username is set to @' + visitor);
+          } 
+        });
+          
+        $('button[name=tweet]').on('click', function() {
           
         });
+        
       });
 
     </script>
