@@ -86,20 +86,29 @@
           }
         };
 
+        // Returns the Username of the current timeline
+        var getTimelineUsername = function() {
+          return $('.userTitle').text().slice(34, -3);
+        };
+
         var showUserFeedOnly = function(userString) {
           var userClass = '.' + userString;
           $('.feed div').hide();
           $('.feed').find(userClass).show();
         };
 
-        // When the 'See New Tweets' button is clicked, show new tweets
-        $('button[name=newTweets]').on('click', function() {
+        // When .feed is set to a particular user's timeline, 
+        // this function only updates the feed with that user's new feeds
+        var refreshUserTweets = function() {
           refreshTweets();
           if ($('.userTitle').is(':visible')) {
-            var userString = $('.userTitle').text().slice(34, -3);
+            var userString = getTimelineUsername();
             showUserFeedOnly(userString);
           }
-        });
+        };
+
+        // When the 'See New Tweets' button is clicked, show new tweets
+        $('button[name=newTweets]').on('click', refreshUserTweets);
 
         // When the 'Home' button is clicked, return to the home page
         $('button[name=home]').on('click', returnHome);
@@ -128,8 +137,12 @@
           if (message && visitor) {
             streams.users[visitor] = [];
             writeTweet(message);
-            returnHome();
-            refreshTweets();
+            if (getTimelineUsername() === visitor) {
+              refreshUserTweets();
+            } else {
+              returnHome();
+              refreshTweets();
+            }
           }
           $('input.tweet').val('');
         });
