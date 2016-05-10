@@ -65,9 +65,7 @@
               tweet.created_at = new Date();
             }
 
-            $tweet.html('<span>@' + tweet.user + '</span>' + ': ' + tweet.message + '   ' + tweet.created_at);
-
-            $tweet.children('span').addClass('userName');
+            $tweet.html('<span class=userName>@' + tweet.user + '</span>' + ': ' + tweet.message + '&nbsp&nbsp&nbsp<span class=date>' + tweet.created_at + '</span>');
 
             $('.feed').prepend($tweet);
             index++;

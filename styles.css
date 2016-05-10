@@ -91,6 +91,10 @@ h1 {
   cursor: pointer;
 }
 
+.date {
+  color: #939393;
+}
+
 span.input {
   font-weight: bold;
 }
@@ -133,7 +137,7 @@ button[name='set'] {
 .container {
 	/*border: 3px dotted #2cb6ff;*/
 	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
-	width: 800px;
+	width: 900px;
   margin: 15px auto;
   padding-left: 30px;
   padding-right: 30px;
