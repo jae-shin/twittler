@@ -79,15 +79,26 @@
 
         // wrap commands to return to the home page with full feed
         var returnHome = function() {
-          $('.feed div').show();
-          $('.feedTitle').show();
-          $('.userTitle').hide();
-        }
+          if ($('.feedTitle').is(':hidden')) {
+            $('.feed div').show();
+            $('.feedTitle').show();
+            $('.userTitle').hide();
+          }
+        };
+
+        var showUserFeedOnly = function(userString) {
+          var userClass = '.' + userString;
+          $('.feed div').hide();
+          $('.feed').find(userClass).show();
+        };
 
         // When the 'See New Tweets' button is clicked, show new tweets
         $('button[name=newTweets]').on('click', function() {
-          returnHome();
           refreshTweets();
+          if ($('.userTitle').is(':visible')) {
+            var userString = $('.userTitle').text().slice(34, -3);
+            showUserFeedOnly(userString);
+          }
         });
 
         // When the 'Home' button is clicked, return to the home page
@@ -99,9 +110,7 @@
           // var tweetsOfUser = streams.users[userString];
           $('.feedTitle').hide();
           $('.userTitle').show().text('Here is the Twittler timeline of @' + userString + "...");
-          var userClass = '.' + userString;
-          $('.feed div').hide();
-          $('.feed').find(userClass).show();
+          showUserFeedOnly(userString);
         });
 
         // Implement writeTweet feature
