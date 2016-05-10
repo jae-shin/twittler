@@ -119,6 +119,7 @@
           if (message && visitor) {
             streams.users[visitor] = [];
             writeTweet(message);
+            returnHome();
             refreshTweets();
           }
           $('input.tweet').val('');
